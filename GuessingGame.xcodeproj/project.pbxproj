@@ -54,10 +54,10 @@
 		74B2B7C1216CFF3500F7859F /* GuessingGame */ = {
 			isa = PBXGroup;
 			children = (
-				74B2B7C2216CFF3500F7859F /* AppDelegate.swift */,
 				74B2B7C4216CFF3500F7859F /* ViewController.swift */,
 				74B2B7C6216CFF3500F7859F /* Main.storyboard */,
 				74B2B7C9216CFF3500F7859F /* Assets.xcassets */,
+				74B2B7C2216CFF3500F7859F /* AppDelegate.swift */,
 				74B2B7CB216CFF3500F7859F /* LaunchScreen.storyboard */,
 				74B2B7CE216CFF3500F7859F /* Info.plist */,
 			);
