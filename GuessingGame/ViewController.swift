@@ -44,6 +44,7 @@ class ViewController: UIViewController {
             //...Ask if the user wants to play again, setting restart button to "Play again"
             guessRemainingLabel.text = "Would you like to play again?"
             restartButton.setTitle("Play Again", for: .normal)
+            numberGuess.isEnabled = false;
         } else {
             //...else, if counter is equal to 1...
             if guessCounter == 1 {
@@ -95,13 +96,15 @@ class ViewController: UIViewController {
     }
  
     @IBAction func Restart(_ sender: Any) {
-        //Randoimzes number, resets guess counter, resets Restart button, resets resultLabel, and enables guess button
+        //Randoimzes number, resets guess counter, clears input field, resets Restart button, resets resultLabel, and enables guess button
         randomizeNumber()
         guessCounter = 7
         displayCounter()
         resultLabel.text = "Waiting for input..."
         guessButton.isEnabled = true;
         restartButton.setTitle("Restart", for: .normal)
+        numberGuess.text = ""
+        numberGuess.isEnabled = true;
     }
 }
 
