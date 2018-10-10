@@ -83,6 +83,7 @@
                         <outlet property="guessButton" destination="6ND-nG-4aG" id="FTw-Sa-EHW"/>
                         <outlet property="guessRemainingLabel" destination="YZg-j7-eLE" id="B9n-km-BBP"/>
                         <outlet property="numberGuess" destination="qHg-2q-OMM" id="xW6-xm-ZKQ"/>
+                        <outlet property="restartButton" destination="mml-6d-6vP" id="0Nq-lr-b1v"/>
                         <outlet property="resultLabel" destination="i8s-9e-eIs" id="10a-tV-zsr"/>
                     </connections>
                 </viewController>
