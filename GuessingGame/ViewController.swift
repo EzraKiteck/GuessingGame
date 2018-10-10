@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     var numberMin: Int = 1
     var numberMax: Int = 100
     var guessCounter: Int = 7
-    var numberRange: Int = 0
     var number: Int = 0
     
     //UI Properties
@@ -26,8 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Uses the min and max to create range of numbers for the random result
-        numberRange = (numberMax - numberMin) + 1
-        number = Int(arc4random_uniform(UInt32(numberRange))) + numberMin
+        number = Int.random(in: numberMin...numberMax)
         //Display guesses remaining and wait for input.
         displayCounter()
         resultLabel.text = "Waiting for input..."
@@ -35,7 +33,7 @@ class ViewController: UIViewController {
     
     func randomizeNumber() {
         //Randomizes the number using the range given from the start function
-        number = Int(arc4random_uniform(UInt32(numberRange))) + numberMin
+        number = Int.random(in: numberMin...numberMax)
     }
     
     func displayCounter() {
@@ -56,27 +54,38 @@ class ViewController: UIViewController {
     }
 
     @IBAction func guessButtonTapped(_ sender: UIButton) {
-        //If guess is equal to number...
-        if (Int(numberGuess.text!) == number) {
-            //...congratulate player, and disable guess button, set counter to 0.
-            resultLabel.text = "You guessed the number!"
-            guessCounter = 0
-            guessButton.isEnabled = false;
-        } else {
-            //... else, subtract one guess attempt and...
-            guessCounter -= 1
-            //...if guess is less than number, say "Too low"...
-            if (Int(numberGuess.text!)! < number) {
-                resultLabel.text = "Sorry, \(numberGuess.text!) is too low."
+        //If guess is actually a number, then continue.
+        if Int(numberGuess.text!) != nil {
+            //If number is outside of the range, then reprimand player
+            if (Int(numberGuess.text!)! > numberMax || Int(numberGuess.text!)! < numberMin) {
+                resultLabel.text = "Try a number between \(numberMin) and \(numberMax)"
             } else {
-                //...else, number should be too high, so say "Too high"...
-                resultLabel.text = "Sorry, \(numberGuess.text!) is too high."
+                //If guess is equal to number...
+                if (Int(numberGuess.text!) == number) {
+                    //...congratulate player, and disable guess button, set counter to 0.
+                    resultLabel.text = "You guessed the number!"
+                    guessCounter = 0
+                    guessButton.isEnabled = false;
+                } else {
+                    //... else, subtract one guess attempt and...
+                    guessCounter -= 1
+                    //...if guess is less than number, say "Too low"...
+                    if (Int(numberGuess.text!)! < number) {
+                        resultLabel.text = "Sorry, \(numberGuess.text!) is too low."
+                    } else {
+                        //...else, number should be too high, so say "Too high"...
+                        resultLabel.text = "Sorry, \(numberGuess.text!) is too high."
+                    }
+                    //...however, if counter hits zero, display "you lose" and disable guess button.
+                    if guessCounter == 0 {
+                        resultLabel.text = "You lose! The number was \(number)."
+                        guessButton.isEnabled = false;
+                    }
+                }
             }
-            //...however, if counter hits zero, display "you lose" and disable guess button.
-            if guessCounter == 0 {
-                resultLabel.text = "You lose! The number was \(number)."
-                guessButton.isEnabled = false;
-            }
+        } else {
+            //If guess is a string, then ask for input again.
+            resultLabel.text = "Please input a number."
         }
         //Finally, display attempts remaining accordingly.
         displayCounter()
