@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var numberMax: Int = 100
     var guessCounter: Int = 7
     var number: Int = 0
+    var mode = "Mode"
     
     //UI Properties
     @IBOutlet weak var restartButton: UIButton!
@@ -22,12 +23,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberGuess: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var guessRemainingLabel: UILabel!
+    @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var modeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Uses the min and max to create range of numbers for the random result
         number = Int.random(in: numberMin...numberMax)
-        //Display guesses remaining, restart button, and wait for input.
+        //Display guesses remaining, restart button, shows instruction and mode text, and waits for input.
+        modeLabel.text = mode
+        instructionLabel.text = "Guess the number between \(numberMin) and \(numberMax)"
         displayCounter()
         resultLabel.text = "Waiting for input..."
         restartButton.setTitle("Restart", for: .normal)

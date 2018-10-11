@@ -12,6 +12,8 @@
 		74B2B7C8216CFF3500F7859F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B2B7C6216CFF3500F7859F /* Main.storyboard */; };
 		74B2B7CA216CFF3500F7859F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B2B7C9216CFF3500F7859F /* Assets.xcassets */; };
 		74B2B7CD216CFF3500F7859F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B2B7CB216CFF3500F7859F /* LaunchScreen.storyboard */; };
+		74B2B7D9216FAA6E00F7859F /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7D8216FAA6E00F7859F /* Difficulty.swift */; };
+		74B2B7DB216FD7A600F7859F /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7DA216FD7A600F7859F /* CustomController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		74B2B7C9216CFF3500F7859F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B2B7CC216CFF3500F7859F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74B2B7CE216CFF3500F7859F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74B2B7D8216FAA6E00F7859F /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		74B2B7DA216FD7A600F7859F /* CustomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				74B2B7C2216CFF3500F7859F /* AppDelegate.swift */,
 				74B2B7CB216CFF3500F7859F /* LaunchScreen.storyboard */,
 				74B2B7CE216CFF3500F7859F /* Info.plist */,
+				74B2B7D8216FAA6E00F7859F /* Difficulty.swift */,
+				74B2B7DA216FD7A600F7859F /* CustomController.swift */,
 			);
 			path = GuessingGame;
 			sourceTree = "<group>";
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74B2B7DB216FD7A600F7859F /* CustomController.swift in Sources */,
 				74B2B7C5216CFF3500F7859F /* ViewController.swift in Sources */,
 				74B2B7C3216CFF3500F7859F /* AppDelegate.swift in Sources */,
+				74B2B7D9216FAA6E00F7859F /* Difficulty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
