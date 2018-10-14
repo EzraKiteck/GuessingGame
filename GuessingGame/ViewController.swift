@@ -14,8 +14,11 @@ class ViewController: UIViewController {
     var numberMin: Int = 1
     var numberMax: Int = 100
     var guessCounter: Int = 7
+    var totalGuessCounter: Int = 7
     var number: Int = 0
     var mode = "Mode"
+    var winCount: Int = 0
+    var loseCount: Int = 0
     
     //UI Properties
     @IBOutlet weak var restartButton: UIButton!
@@ -30,10 +33,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //Uses the min and max to create range of numbers for the random result
         number = Int.random(in: numberMin...numberMax)
-        //Display guesses remaining, restart button, shows instruction and mode text, and waits for input.
+        //Display guesses remaining, restart button, shows instruction and mode text, sets the totalGuessCounter, and waits for input.
         modeLabel.text = mode
         instructionLabel.text = "Guess the number between \(numberMin) and \(numberMax)"
         displayCounter()
+        totalGuessCounter = guessCounter
         resultLabel.text = "Waiting for input..."
         restartButton.setTitle("Restart", for: .normal)
     }
@@ -71,8 +75,9 @@ class ViewController: UIViewController {
             } else {
                 //If guess is equal to number...
                 if (Int(numberGuess.text!) == number) {
-                    //...congratulate player, and disable guess button, set counter to 0.
+                    //...congratulate player, and disable guess button, add winCount, set counter to 0.
                     resultLabel.text = "You guessed the number!"
+                    winCount += 1
                     guessCounter = 0
                     guessButton.isEnabled = false;
                 } else {
@@ -85,9 +90,10 @@ class ViewController: UIViewController {
                         //...else, number should be too high, so say "Too high"...
                         resultLabel.text = "\(numberGuess.text!) is too high."
                     }
-                    //...however, if counter hits zero, display "you lose" and disable guess button.
+                    //...however, if counter hits zero, display "you lose" and disable guess button, and add 1 to loseCount.
                     if guessCounter == 0 {
                         resultLabel.text = "You lose! The number was \(number)."
+                        loseCount += 1
                         guessButton.isEnabled = false;
                     }
                 }
@@ -103,7 +109,7 @@ class ViewController: UIViewController {
     @IBAction func Restart(_ sender: Any) {
         //Randoimzes number, resets guess counter, clears input field, resets Restart button, resets resultLabel, and enables guess button
         randomizeNumber()
-        guessCounter = 7
+        guessCounter = totalGuessCounter
         displayCounter()
         resultLabel.text = "Waiting for input..."
         guessButton.isEnabled = true;

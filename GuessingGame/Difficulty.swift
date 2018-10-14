@@ -42,6 +42,7 @@ class DifficultyVC : UIViewController{
         numberGuessMax = 250
         numberGuessCounter = 8
         guessMode = "Hard"
+        print("And...")
     }
     
     //Handles passing the variables to the next screen
@@ -51,6 +52,7 @@ class DifficultyVC : UIViewController{
             difficultyVC.numberMax = numberGuessMax
             difficultyVC.guessCounter = numberGuessCounter
             difficultyVC.mode = guessMode
+            print("Go")
         }
     }
 }

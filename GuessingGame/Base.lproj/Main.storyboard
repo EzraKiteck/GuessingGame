@@ -47,7 +47,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6h-6h-Wfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1034" y="134"/>
+            <point key="canvasLocation" x="-1036" y="113"/>
+        </scene>
+        <!--ResultsController-->
+        <scene sceneID="S3z-xk-5Rp">
+            <objects>
+                <viewController id="Jw6-Jj-FLW" userLabel="ResultsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sPk-7o-G8O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7vt-xZ-9qG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckh-2i-2Qp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-731" y="855"/>
         </scene>
         <!--GameScreen-->
         <scene sceneID="tne-QT-ifu">
@@ -142,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="134"/>
+            <point key="canvasLocation" x="1610" y="161"/>
         </scene>
         <!--Custom-->
         <scene sceneID="LSd-3a-zb2">
@@ -153,7 +168,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="K9C-eh-1Yl">
-                                <rect key="frame" x="12.5" y="234.5" width="350" height="198.5"/>
+                                <rect key="frame" x="12.5" y="202" width="350" height="263.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess a number between" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pme-Pr-n0p">
                                         <rect key="frame" x="23" y="0.0" width="296" height="32.5"/>
@@ -208,23 +223,32 @@
                                         </subviews>
                                     </stackView>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The minimum number must be smaller than the maximum" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h99-Oe-WT7">
-                                        <rect key="frame" x="-48.5" y="190.5" width="439" height="0.0"/>
+                                        <rect key="frame" x="-48.5" y="202.5" width="439" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.76205609715664324" green="0.16968726541962367" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVw-vI-KUb">
+                                        <rect key="frame" x="153.5" y="214.5" width="35" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Set"/>
+                                        <connections>
+                                            <action selector="setButtonPressed:" destination="cZD-eq-ax1" eventType="touchUpInside" id="j7c-JP-lof"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="lkl-4w-xEf"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="8" right="8"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="842-9K-AYy">
-                                <rect key="frame" x="136.5" y="514" width="102" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="842-9K-AYy">
+                                <rect key="frame" x="161" y="514" width="53" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <state key="normal" title="Ready!"/>
+                                <state key="normal" title="Go!"/>
                                 <connections>
                                     <action selector="readyButtonPressed:" destination="cZD-eq-ax1" eventType="touchUpInside" id="1H4-eE-EIe"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="3aS-Q3-UxU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0y-TJ-fSZ">
@@ -259,12 +283,13 @@
                         <outlet property="guessCounterUI" destination="DOf-3l-ShU" id="8Yo-6S-Bkc"/>
                         <outlet property="numberMaxUI" destination="RDO-rD-lmt" id="iq5-yX-xzv"/>
                         <outlet property="numberMinUI" destination="XVP-Aq-JsG" id="GN3-dv-HmN"/>
+                        <outlet property="readyButton" destination="842-9K-AYy" id="ldP-lT-eaN"/>
                         <outlet property="warningLabel" destination="h99-Oe-WT7" id="yaa-WM-C3B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sa9-r4-XCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613.60000000000002" y="902.69865067466276"/>
+            <point key="canvasLocation" x="815" y="912"/>
         </scene>
         <!--DifficultyChoose-->
         <scene sceneID="l8S-ur-JD4">
@@ -339,7 +364,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wof-kQ-esU"/>
-        <segue reference="z4o-9N-ico"/>
+        <segue reference="4cb-8d-ucR"/>
+        <segue reference="3aS-Q3-UxU"/>
     </inferredMetricsTieBreakers>
 </document>
