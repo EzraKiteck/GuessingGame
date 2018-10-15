@@ -16,6 +16,14 @@ class CustomController : UIViewController {
     var numberGuessCounter = 7
     var guessMode = "Normal"
     
+    var redValue: Float = 0.17
+    var greenValue: Float = 0.2
+    var blueValue: Float = 0.24
+    var textIsBlack: Bool = false
+    
+    var winCount: Int = 0
+    var loseCount: Int = 0
+    
     //UI Properties
     @IBOutlet weak var numberMinUI: UITextField!
     @IBOutlet weak var numberMaxUI: UITextField!
@@ -23,8 +31,27 @@ class CustomController : UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var readyButton: UIButton!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var guessLabel: UILabel!
+    @IBOutlet weak var andLabel: UILabel!
+    @IBOutlet weak var attemptsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Sets BG color
+        self.view.backgroundColor = UIColor(red:CGFloat(redValue), green:CGFloat(greenValue), blue:CGFloat(blueValue), alpha:1.0)
+        //Sets Text color
+        if textIsBlack {
+            titleLabel.textColor = .black
+            guessLabel.textColor = .black
+            andLabel.textColor = .black
+            attemptsLabel.textColor = .black
+        } else {
+            titleLabel.textColor = .white
+            guessLabel.textColor = .white
+            andLabel.textColor = .white
+            attemptsLabel.textColor = .white
+        }
         readyButton.isEnabled = false;
     }
     
@@ -67,41 +94,29 @@ class CustomController : UIViewController {
     
     //Handles passing the variables to the next screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let difficultyVC = segue.destination as? ViewController {
-            difficultyVC.numberMin = numberGuessMin
-            difficultyVC.numberMax = numberGuessMax
-            difficultyVC.guessCounter = numberGuessCounter
-            difficultyVC.mode = guessMode
+        if let vc = segue.destination as? ViewController {
+            vc.numberMin = numberGuessMin
+            vc.numberMax = numberGuessMax
+            vc.guessCounter = numberGuessCounter
+            vc.mode = guessMode
+            
+            vc.redValue = redValue
+            vc.greenValue = greenValue
+            vc.blueValue = blueValue
+            vc.textIsBlack = textIsBlack
+            
+            vc.winCount = winCount
+            vc.loseCount = loseCount
+        }
+        if let vc = segue.destination as? DifficultyVC {
+            vc.redValue = redValue
+            vc.greenValue = greenValue
+            vc.blueValue = blueValue
+            vc.textIsBlack = textIsBlack
+            
+            vc.winCount = winCount
+            vc.loseCount = loseCount
         }
     }
     
-    
-    
-    /*
- //If the inputs are actually numbers, then continue.
- if (Int(numberMinUI.text!) != nil && Int(numberMaxUI.text!) != nil && Int(guessCounterUI.text!) != nil) {
- //Hide warning label and set the input to the number values.
- warningLabel.isHidden = true;
- numberGuessMin = Int(numberMinUI.text!)!
- numberGuessMax = Int(numberMaxUI.text!)!
- numberGuessCounter = Int(guessCounterUI.text!)!
- guessMode = "Custom"
- readyButton.isEnabled = true
- print("Ready!")
- } else {
- //If one of the fields is not a number, send warning
- warningLabel.text = "Please enter a number in all fields"
- warningLabel.isHidden = false;
- }
- if (numberGuessMin > numberGuessMax) {
- //If range will be negative, send warning
- warningLabel.text = "The minimum number must be smaller than the maximum"
- warningLabel.isHidden = false;
- }
- if (numberGuessCounter < 1) {
- //If attempts is less than 1, send warning
- warningLabel.text = "Number of attempts must be greater than 0"
- warningLabel.isHidden = false;
- }
- */
 }

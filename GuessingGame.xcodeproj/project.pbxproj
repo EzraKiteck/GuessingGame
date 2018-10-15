@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7422B93A2174EF09008CF1AE /* TitleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7422B9392174EF09008CF1AE /* TitleController.swift */; };
 		74B2B7C3216CFF3500F7859F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7C2216CFF3500F7859F /* AppDelegate.swift */; };
 		74B2B7C5216CFF3500F7859F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7C4216CFF3500F7859F /* ViewController.swift */; };
 		74B2B7C8216CFF3500F7859F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B2B7C6216CFF3500F7859F /* Main.storyboard */; };
@@ -15,9 +16,11 @@
 		74B2B7D9216FAA6E00F7859F /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7D8216FAA6E00F7859F /* Difficulty.swift */; };
 		74B2B7DB216FD7A600F7859F /* CustomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7DA216FD7A600F7859F /* CustomController.swift */; };
 		74B2B7DD217409D800F7859F /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7DC217409D800F7859F /* Results.swift */; };
+		74B2B7DF2174E46D00F7859F /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B2B7DE2174E46D00F7859F /* ColorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7422B9392174EF09008CF1AE /* TitleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleController.swift; sourceTree = "<group>"; };
 		74B2B7BF216CFF3500F7859F /* GuessingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B2B7C2216CFF3500F7859F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B2B7C4216CFF3500F7859F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		74B2B7D8216FAA6E00F7859F /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		74B2B7DA216FD7A600F7859F /* CustomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomController.swift; sourceTree = "<group>"; };
 		74B2B7DC217409D800F7859F /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		74B2B7DE2174E46D00F7859F /* ColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				74B2B7D8216FAA6E00F7859F /* Difficulty.swift */,
 				74B2B7DA216FD7A600F7859F /* CustomController.swift */,
 				74B2B7DC217409D800F7859F /* Results.swift */,
+				74B2B7DE2174E46D00F7859F /* ColorController.swift */,
+				7422B9392174EF09008CF1AE /* TitleController.swift */,
 			);
 			path = GuessingGame;
 			sourceTree = "<group>";
@@ -145,6 +151,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74B2B7DB216FD7A600F7859F /* CustomController.swift in Sources */,
+				74B2B7DF2174E46D00F7859F /* ColorController.swift in Sources */,
+				7422B93A2174EF09008CF1AE /* TitleController.swift in Sources */,
 				74B2B7C5216CFF3500F7859F /* ViewController.swift in Sources */,
 				74B2B7C3216CFF3500F7859F /* AppDelegate.swift in Sources */,
 				74B2B7D9216FAA6E00F7859F /* Difficulty.swift in Sources */,

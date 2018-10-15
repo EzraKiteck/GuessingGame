@@ -19,6 +19,11 @@ class ViewController: UIViewController {
     var mode = "Mode"
     var winCount: Int = 0
     var loseCount: Int = 0
+    
+    var redValue: Float = 0.17
+    var greenValue: Float = 0.2
+    var blueValue: Float = 0.24
+    var textIsBlack: Bool = false
 
     //UI Properties
     @IBOutlet weak var restartButton: UIButton!
@@ -33,6 +38,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Sets bg color
+        self.view.backgroundColor = UIColor(red:CGFloat(redValue), green:CGFloat(greenValue), blue:CGFloat(blueValue), alpha:1.0)
+        //Sets Text color
+        if textIsBlack {
+            modeLabel.textColor = .black
+            instructionLabel.textColor = .black
+            resultLabel.textColor = .black
+            guessRemainingLabel.textColor = .black
+        } else {
+            modeLabel.textColor = .white
+            instructionLabel.textColor = .white
+            resultLabel.textColor = .white
+            guessRemainingLabel.textColor = .white
+        }
         //Uses the min and max to create range of numbers for the random result
         number = Int.random(in: numberMin...numberMax)
         //Display guesses remaining, restart button, shows instruction and mode text, sets the totalGuessCounter, and waits for input.
@@ -111,6 +130,7 @@ class ViewController: UIViewController {
         }
         //Finally, display attempts remaining and score accordingly.
         displayCounter()
+        numberGuess.text = ""
         winLabel.text = "Wins:\n \(winCount)"
         lossLabel.text = "Losses:\n \(loseCount)"
     }
@@ -127,10 +147,23 @@ class ViewController: UIViewController {
         numberGuess.isEnabled = true;
     }
     
-    //Smoothens the edges of any object
+    //Smoothens the corners of any object
     func applyRoundCorner(_ object: AnyObject) {
         object.layer?.cornerRadius = object.frame.size.width / 8
         object.layer?.masksToBounds = true
     }
+    
+    //Handles passing the variables to the next screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DifficultyVC {
+            vc.redValue = redValue
+            vc.greenValue = greenValue
+            vc.blueValue = blueValue
+            vc.textIsBlack = textIsBlack
+            vc.winCount = winCount
+            vc.loseCount = loseCount
+        }
+    }
+    
 }
 
