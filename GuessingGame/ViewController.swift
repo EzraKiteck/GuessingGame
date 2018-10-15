@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var mode = "Mode"
     var winCount: Int = 0
     var loseCount: Int = 0
-    
+
     //UI Properties
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var guessButton: UIButton!
@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var guessRemainingLabel: UILabel!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var modeLabel: UILabel!
+    @IBOutlet weak var winLabel: UILabel!
+    @IBOutlet weak var lossLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +37,16 @@ class ViewController: UIViewController {
         number = Int.random(in: numberMin...numberMax)
         //Display guesses remaining, restart button, shows instruction and mode text, sets the totalGuessCounter, and waits for input.
         modeLabel.text = mode
-        instructionLabel.text = "Guess the number between \(numberMin) and \(numberMax)"
+        instructionLabel.text = "Guess the number between\n \(numberMin) and \(numberMax)"
         displayCounter()
         totalGuessCounter = guessCounter
         resultLabel.text = "Waiting for input..."
         restartButton.setTitle("Restart", for: .normal)
+        //Show score
+        winLabel.text = "Wins:\n \(winCount)"
+        lossLabel.text = "Losses:\n \(loseCount)"
+        applyRoundCorner(winLabel)
+        applyRoundCorner(lossLabel)
     }
     
     func randomizeNumber() {
@@ -76,8 +83,8 @@ class ViewController: UIViewController {
                 //If guess is equal to number...
                 if (Int(numberGuess.text!) == number) {
                     //...congratulate player, and disable guess button, add winCount, set counter to 0.
-                    resultLabel.text = "You guessed the number!"
                     winCount += 1
+                    resultLabel.text = "You guessed the number!"
                     guessCounter = 0
                     guessButton.isEnabled = false;
                 } else {
@@ -102,8 +109,10 @@ class ViewController: UIViewController {
             //If guess is a string, then ask for input again.
             resultLabel.text = "Please input a number."
         }
-        //Finally, display attempts remaining accordingly.
+        //Finally, display attempts remaining and score accordingly.
         displayCounter()
+        winLabel.text = "Wins:\n \(winCount)"
+        lossLabel.text = "Losses:\n \(loseCount)"
     }
  
     @IBAction func Restart(_ sender: Any) {
@@ -116,6 +125,12 @@ class ViewController: UIViewController {
         restartButton.setTitle("Restart", for: .normal)
         numberGuess.text = ""
         numberGuess.isEnabled = true;
+    }
+    
+    //Smoothens the edges of any object
+    func applyRoundCorner(_ object: AnyObject) {
+        object.layer?.cornerRadius = object.frame.size.width / 8
+        object.layer?.masksToBounds = true
     }
 }
 

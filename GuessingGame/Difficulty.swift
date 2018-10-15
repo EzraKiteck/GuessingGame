@@ -24,7 +24,7 @@ class DifficultyVC : UIViewController{
     @IBAction func easyButtonPressed(_ sender: Any) {
         numberGuessMin = 1
         numberGuessMax = 50
-        numberGuessCounter = 6
+        numberGuessCounter = 7
         guessMode = "Easy"
     }
     

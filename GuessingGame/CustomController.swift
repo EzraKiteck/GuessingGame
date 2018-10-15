@@ -28,9 +28,6 @@ class CustomController : UIViewController {
         readyButton.isEnabled = false;
     }
     
-    @IBAction func readyButtonPressed(_ sender: Any) {
-    }
-    
     @IBAction func setButtonPressed(_ sender: Any) {
         //If the inputs are actually numbers...
         if (Int(numberMinUI.text!) != nil && Int(numberMaxUI.text!) != nil && Int(guessCounterUI.text!) != nil) {
